@@ -1,37 +1,33 @@
-import os
-import sys
-
 import numpy as np
-
 import easyocr
-from PIL import Image
+import cv2
+
+from config import logger
 
 
-class TitleExtractor:
+class TextExtractor:
 
     def __init__(self):
         self.reader = easyocr.Reader(['en'])
-
-    @staticmethod
-    def convert_image_to_array(image):
-        """
-        Convert PIL Image to numpy array
-        Args:
-            image: PIL Image object
-        Returns:
-            np.array: numpy array of the image
-        """
-        return np.array(image)
-
-    def get_suggestions_from_image(self, image):
+    
+    def get_suggestions_from_image(self, image_filepath):
         """
         Getting list of suggested words from the image
+        
         Args:
             image: PIL Image object
         Returns:
             list: list of words suggestions
         """
+        image = cv2.imread(image_filepath) 
+        logger.log(
+            "INFO",
+            f"Extracting text suggestions from the image: {image_filepath}",
+            extra={"module": "text_extractor.py"}
+        )
+        
         results = self.reader.readtext(image)
         suggestions = [result[1] for result in results]
-        
+
         return suggestions
+        

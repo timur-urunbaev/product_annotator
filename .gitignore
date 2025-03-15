@@ -8,6 +8,8 @@
 # Ignore selected folders
 # utils/
 .gradio/
+notebooks/
+datasets/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

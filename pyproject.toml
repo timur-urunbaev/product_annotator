@@ -1,20 +1,13 @@
-[tool.poetry]
+[project]
 name = "product-annotator"
 version = "0.1.0"
 description = ""
-authors = ["nedogeek <urunbaev.timur@gmail.com>"]
+authors = [{ name = "nedogeek", email = "urunbaev.timur@gmail.com" }]
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-gradio = "^5.14.0"
-polars = "^1.21.0"
-easyocr = "^1.7.2"
-jupyter = "^1.1.1"
-loguru = "^0.7.3"
-psycopg2-binary = "^2.9.10"
+requires-python = ">=3.13,<4.0"
+dependencies = ["jupyter (>=1.1.1,<2.0.0)", "gradio (>=5.21.0,<6.0.0)", "polars (>=1.25.1,<2.0.0)", "easyocr (>=1.7.2,<2.0.0)", "loguru (>=0.7.3,<0.8.0)", "psycopg2-binary (>=2.9.10,<3.0.0)", "python-dotenv (>=1.0.1,<2.0.0)", "opencv-python (>=4.11.0.86,<5.0.0.0)"]
 
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"

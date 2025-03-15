@@ -1,2 +1,3 @@
 from .dataset_generator import DatasetGenerator
-from .product_collector import TitleExtractor
+from .text_extractor import TextExtractor
+from .product_annotator import ProductAnnotator
