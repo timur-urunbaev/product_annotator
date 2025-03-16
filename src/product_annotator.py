@@ -3,7 +3,6 @@ from typing import List, Optional
 
 # Interface
 import gradio as gr
-from tqdm import tqdm
 
 # Local Packages
 from src import TextExtractor
@@ -69,7 +68,7 @@ class ProductAnnotator:
             )
             cls.dataset.save_dataset()
 
-    def build_ui(self) -> gr.Interface:
+    def build_ui(self):
         """Creates UI-interface for the annotation tool."""
         with gr.Blocks() as demo:
             gr.Markdown("## Upload an Image to annotate the Product Label")
@@ -107,7 +106,7 @@ class ProductAnnotator:
 
             process_button.click(fn=self.process_image,
                                  inputs=image_input,
-                                 outputs=suggestions, show_progress=True)
+                                 outputs=suggestions)
 
         return demo
 
@@ -115,7 +114,7 @@ class ProductAnnotator:
             port: Optional[int] = 8000,
             share: Optional[bool] = True) -> None:
         """
-        Run the Gradio web-interface.
+        Run the Gradio web-interface.annotator
 
         Args:
             host (str): Server name to run the application
